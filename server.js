@@ -33,6 +33,13 @@ function handleEvent(event) {
     //    });
    // }
 
+    if (!parseInt(event.message.text)) {
+        return client.replyMessage(event.replyToken, {
+            type: 'text',
+            text: "数字ではありません。"
+        });
+    }
+
     const rate = 112;
     return client.replyMessage(event.replyToken, {
         type: 'text',
