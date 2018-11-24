@@ -25,19 +25,10 @@ function handleEvent(event) {
         return Promise.resolve(null);
     }
 
-    //const pattern = new RegExp(/^\d(\.\d+)?$/);
-    //if (! /^\d(\.\d+)?$/.test(event.message.text)) {
-    //    return client.replyMessage(event.replyToken, {
-    //        type: 'text',
-    //        text: "数字ではありません。"
-    //    });
-   // }
-
-    if (!parseInt(event.message.text)) {
+    if (isNaN(event.message.text)) {
         return client.replyMessage(event.replyToken, {
             type: 'text',
-            text: "数字ではありません。"
-        });
+            text: "数値ではありません。"});
     }
 
     const rate = 112;
