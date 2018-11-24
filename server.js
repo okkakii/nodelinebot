@@ -43,7 +43,7 @@ function handleEvent(event) {
     const rate = 112;
     return client.replyMessage(event.replyToken, {
         type: 'text',
-        text: "日本円" + event.message.text + "円は\n 米ドルで" +　event.message.text * rate + "です。" +
+        text: "米ドル" + event.message.text + "ドルは\n 円換算すると、" +　event.message.text * rate + "円です。\n" +
             "現在のレートは1米ドルあたり" + rate +"円です。"
     });
 }
