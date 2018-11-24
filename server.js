@@ -20,7 +20,7 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 
 const client = new line.Client(config);
 
-function handleEvent(event) {
+const handleEvent = event => {
     if (event.type !== 'message' || event.message.type !== 'text') {
         return Promise.resolve(null);
     }
@@ -37,7 +37,7 @@ function handleEvent(event) {
         type: 'text',
         text: `${event.message.text.toLocaleString()}米ドルは日本円に換算すると、\n${currencychanged.toLocaleString()}円です。\n現在のレートは1米ドルあたり${rate}円です。`
     });
-}
+};
 
 app.listen(PORT);
 console.log(`Server running at ${PORT}`);
