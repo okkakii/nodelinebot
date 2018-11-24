@@ -44,8 +44,7 @@ function handleEvent(event) {
     const currencychanged = event.message.text * rate;
     return client.replyMessage(event.replyToken, {
         type: 'text',
-        text: event.message.text.toLocaleString() + "米ドルは\n 円に換算すると、" +　currencychanged.toLocaleString() + "円です。\n" +
-            "現在のレートは1米ドルあたり" + rate +"円です。"
+        text: `${event.message.text.toLocaleString()}米ドルは日本円に換算すると、\n${currencychanged.toLocaleString()}円です。\n現在のレートは1米ドルあたり${rate}円です。`
     });
 }
 
