@@ -25,14 +25,16 @@ const handleEvent = event => {
         return Promise.resolve(null);
     }
 
-    if (isNaN(event.message.text)) {
+    let num = Number(event.message.text);
+
+    if (Number.isNaN(num)) {
         return client.replyMessage(event.replyToken, {
             type: 'text',
-            text: "数値ではありません。"});
+            text: "数値ではありません。数値のみ入力ください。"});
     }
 
     const rate = 112;
-    const currencychanged = event.message.text * rate;
+    const currencychanged = num * rate;
     return client.replyMessage(event.replyToken, {
         type: 'text',
         text: `${event.message.text.toLocaleString()}米ドルは日本円に換算すると、\n${currencychanged.toLocaleString()}円です。\n現在のレートは1米ドルあたり${rate}円です。`
